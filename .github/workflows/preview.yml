@@ -1,0 +1,91 @@
+name: Isolated UI 2.0 Preview
+on:
+  workflow_dispatch:
+    inputs:
+      preview_commit:
+        description: Exact approved preview repository commit SHA (40 lowercase hex)
+        required: true
+        type: string
+permissions: {}
+concurrency:
+  group: isolated-pages-preview
+  cancel-in-progress: false
+jobs:
+  build:
+    if: github.repository == 'llxxtt0916-ui2-preview/workbench-preview' && github.ref == 'refs/heads/main' && github.sha == inputs.preview_commit
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout exact approved preview content
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: ${{ inputs.preview_commit }}
+          persist-credentials: false
+          fetch-depth: 1
+      - name: Set exact build Node version
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '24.19.0'
+          check-latest: false
+      - name: Verify immutable inputs and build exact static closure
+        env:
+          PREVIEW_OUTPUT: ${{ runner.temp }}/workbench-site
+          PREVIEW_REPORT: ${{ runner.temp }}/workbench-assets.json
+          APPROVED_PREVIEW_COMMIT: ${{ inputs.preview_commit }}
+        shell: bash
+        run: |
+          test "$GITHUB_SHA" = "$APPROVED_PREVIEW_COMMIT"
+          node --version
+          cat /etc/os-release
+          node <<'NODE'
+          'use strict';
+          const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),assert=require('node:assert/strict');
+          const sourceCommit='54eac92db183b67964607fc739a71494dd56d6b9',buildId='g2-b5-i06-82528cf977d7dd2a';
+          const root=process.cwd(),sha=b=>crypto.createHash('sha256').update(b).digest('hex');
+          const expected=JSON.parse(fs.readFileSync('verification/expected-assets.json','utf8')),provenance=JSON.parse(fs.readFileSync('verification/provenance.json','utf8'));
+          assert.equal(provenance.sourceCommit,sourceCommit);assert.equal(expected.sourceCommit,sourceCommit);assert.equal(expected.buildId,buildId);assert.equal(provenance.previewRepository,'llxxtt0916-ui2-preview/workbench-preview');
+          assert.equal(provenance.sourceFiles.length,29);assert.equal(expected.resources.length,28);
+          function files(dir,base=dir){return fs.readdirSync(dir,{withFileTypes:true}).flatMap(e=>{if(dir===base&&e.name==='.git')return [];const p=path.join(dir,e.name),s=fs.lstatSync(p);assert(!s.isSymbolicLink());if(s.isDirectory())return files(p,base);assert(s.isFile()&&s.nlink===1);return [path.relative(base,p).split(path.sep).join('/')];});}
+          const allowed=[...provenance.sourceFiles.map(x=>x.path),'verification/expected-assets.json','verification/provenance.json','.github/workflows/preview.yml','README.md'].sort();
+          assert.equal(new Set(allowed).size,33);assert.deepEqual(files(root).sort(),allowed);
+          for(const f of provenance.sourceFiles){assert(!f.path.includes('..'));const b=fs.readFileSync(f.path);assert.equal(b.length,f.bytes);assert.equal(sha(b),f.sha256);}
+          const dest=process.env.PREVIEW_OUTPUT,reportFile=process.env.PREVIEW_REPORT;
+          assert(dest&&reportFile&&!fs.existsSync(dest));
+          const builder=require(path.join(root,'tools/g2-b5-build.cjs')),report=builder.build(path.join(root,'source'),dest);
+          assert.equal(report.buildId,buildId);assert.equal(report.schemaVersion,2);assert.equal(report.exchangeRevision,1);
+          assert.deepEqual(files(dest).sort(),expected.resources.map(x=>x.path).sort());
+          for(const f of expected.resources){const b=fs.readFileSync(path.join(dest,f.path));assert.equal(b.length,f.bytes);assert.equal(sha(b),f.sha256);}
+          const html=fs.readFileSync(path.join(dest,'index.html'),'utf8');let sri=0;
+          for(const tag of html.matchAll(/<(?:script|link)\b[^>]*>/g)){const m=tag[0].match(/integrity="sha256-([^"]+)"/),u=tag[0].match(/\b(?:src|href)="([^"]+)"/);if(!m)continue;assert(u);const p=u[1].split(/[?#]/)[0],f=expected.resources.find(x=>x.path===p);assert(f);assert.equal(m[1],Buffer.from(f.sha256,'hex').toString('base64'));sri++;}
+          assert.equal(sri,17);
+          const contract=html.match(/window\.G2B5_BOOT_CONTRACT=(\{.*?\});\/\* I06_BOOT_CONTRACT_END \*\//);assert(contract);assert.equal(JSON.parse(contract[1]).buildId,buildId);
+          assert(html.includes('scripts/g2-b2-entry.js')&&html.includes('G2B5Boot.ready')&&html.includes('G2B5Bindings.installBrowser'));
+          fs.writeFileSync(reportFile,JSON.stringify({...report,verification:{sourceCommit,sourceFiles:29,repositoryFiles:33,resources:28,sri:17,platform:process.platform,node:process.version,result:'PASS'}},null,2)+'\n',{flag:'wx'});
+          console.log(JSON.stringify({sourceCommit,buildId,sourceFiles:29,repositoryFiles:33,resources:28,sri:17,platform:process.platform,node:process.version,result:'PASS'}));
+          NODE
+      - name: Upload only the verified 28 website files
+        uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3
+        with:
+          path: ${{ runner.temp }}/workbench-site
+          retention-days: 1
+  deploy:
+    needs: build
+    if: github.repository == 'llxxtt0916-ui2-preview/workbench-preview' && github.ref == 'refs/heads/main' && github.sha == inputs.preview_commit
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Read this repository Pages configuration
+        uses: actions/configure-pages@1f0c5cde4bc74cd7e1254d0cb4de8d49e9068c7d # v4
+        with:
+          enablement: false
+      - name: Deploy only this repository Pages artifact
+        id: deployment
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4

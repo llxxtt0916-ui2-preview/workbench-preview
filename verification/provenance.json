@@ -1,0 +1,216 @@
+{
+  "version": 1,
+  "sourceRepository": "llxxtt0916-coder/workbench",
+  "sourceCommit": "54eac92db183b67964607fc739a71494dd56d6b9",
+  "expectedBuildId": "g2-b5-i06-82528cf977d7dd2a",
+  "previewRepository": "llxxtt0916-ui2-preview/workbench-preview",
+  "sourceFiles": [
+    {
+      "path": "source/index.html",
+      "sourcePath": "index.html",
+      "bytes": 529341,
+      "sha256": "e2ba4a10cc7e7c26a1c30b8c5ee20bf304dc2a3cf5542c5a645c674b163d4ee2",
+      "gitBlobSHA1": "0c1496c8d5eb43c9641c96075c09f5347c72fcc0"
+    },
+    {
+      "path": "source/manifest.json",
+      "sourcePath": "manifest.json",
+      "bytes": 850,
+      "sha256": "82860a4136d879c09b27c048549fe2576cf7917ea39ae37979b0f53c6f359e1d",
+      "gitBlobSHA1": "91caaaed5b0c03dd32222620719359e293a311ce"
+    },
+    {
+      "path": "source/icons/icon-192.svg",
+      "sourcePath": "icons/icon-192.svg",
+      "bytes": 775,
+      "sha256": "880b14642b79724261f017dd8cb34005e3e8979d9917394a0c9659443998186e",
+      "gitBlobSHA1": "7d8f84962f00a304c5c4a9a9bd89b70b6cfda254"
+    },
+    {
+      "path": "source/icons/icon-512.svg",
+      "sourcePath": "icons/icon-512.svg",
+      "bytes": 786,
+      "sha256": "9028d1204f6b4276b0262f3c214e8636c0de7de8c0b025d1041b7d8f771e6890",
+      "gitBlobSHA1": "a61fed374e1c4441e9cc304f245a15c7e7ba6218"
+    },
+    {
+      "path": "source/styles/base.css",
+      "sourcePath": "styles/base.css",
+      "bytes": 2388,
+      "sha256": "4c53176d53f6484b281d4ea1ca422eef49beb01cf3f78515e65b53dd07918cf7",
+      "gitBlobSHA1": "cf3ef8cd2663fadd8eabe509c82fc9b85059c3f6"
+    },
+    {
+      "path": "source/styles/layout.css",
+      "sourcePath": "styles/layout.css",
+      "bytes": 4564,
+      "sha256": "cfbca3a9c413bca7868060e8d3829e2c275452c6d4de491ea9144e92786c73f1",
+      "gitBlobSHA1": "f5754a72c37f959b0c3a7ae16914c36b5b4eebb6"
+    },
+    {
+      "path": "source/styles/components.css",
+      "sourcePath": "styles/components.css",
+      "bytes": 58956,
+      "sha256": "4d601cf5cc393a26d612722c0ccfaf7d700b858bfe1e8ad9dff90b41e6b38234",
+      "gitBlobSHA1": "8090806653c2a4c4daba3c307d4d1792e2e008cd"
+    },
+    {
+      "path": "source/assets/ui2/foundations.css",
+      "sourcePath": "assets/ui2/foundations.css",
+      "bytes": 1343,
+      "sha256": "ffe9696d861f4377ae69ac7c39256a58e0f853a0da7e67c66e4bdf5b98b4930e",
+      "gitBlobSHA1": "f3db2c10bbbf4ab2c04c982ace351082b4241541"
+    },
+    {
+      "path": "source/assets/ui2/components.css",
+      "sourcePath": "assets/ui2/components.css",
+      "bytes": 16320,
+      "sha256": "124a1055b124607cc4cc9b20361383ffc4f0c7b1fb457d4e7af1e43fdd2c75f1",
+      "gitBlobSHA1": "0883359d7243a8c215087bd485b5ec53142c31ea"
+    },
+    {
+      "path": "source/assets/ui2/pages.css",
+      "sourcePath": "assets/ui2/pages.css",
+      "bytes": 21064,
+      "sha256": "8b5dc3e97f8b25c8e4148f69c33677219a94534e44cf3150cba34d5441fdd15e",
+      "gitBlobSHA1": "00b154de4d318253ce48859b7afda866b416276b"
+    },
+    {
+      "path": "source/assets/ui2/business-records.css",
+      "sourcePath": "assets/ui2/business-records.css",
+      "bytes": 2535,
+      "sha256": "6e08276712d55091b87a96e7a6b8e0ba07e2948efd7cfa525b5c1ad0a830e279",
+      "gitBlobSHA1": "e172532bcacd44c3639af50397c0e9f3ac57cde2"
+    },
+    {
+      "path": "source/scripts/g2-b1-core.js",
+      "sourcePath": "scripts/g2-b1-core.js",
+      "bytes": 26482,
+      "sha256": "2606802f87705035d9ec230d8fe7eb38ac5481ce644030d02d94b8c70b304a4b",
+      "gitBlobSHA1": "d49aa35b4d428d49319b1dff47b7a56e3f37896a"
+    },
+    {
+      "path": "source/scripts/g2-b2-entry.js",
+      "sourcePath": "scripts/g2-b2-entry.js",
+      "bytes": 2535,
+      "sha256": "6a0aa3b82130cf79b8cdf3fa78306913a062bb8693a86ba9f0499e687442a9a7",
+      "gitBlobSHA1": "59c05de774eb70137b7a25d0b7b29edbc2d5a3ef"
+    },
+    {
+      "path": "source/scripts/g2-b2-core.js",
+      "sourcePath": "scripts/g2-b2-core.js",
+      "bytes": 12618,
+      "sha256": "9715ffc5782734b990755f9b3283ada11d7a21191e855b0204d0ab285804a3b4",
+      "gitBlobSHA1": "3d94fb7165be36e678c589476260406810d0407b"
+    },
+    {
+      "path": "source/scripts/g2-b2-bindings.js",
+      "sourcePath": "scripts/g2-b2-bindings.js",
+      "bytes": 9390,
+      "sha256": "c418aa47b8a69dbfb6e82dfac965d14c23304c6d0cec55e890a6f8a0c2be8737",
+      "gitBlobSHA1": "e46c8fd77961fdd2eb3b9b9ce22ed5a4fecbf2d6"
+    },
+    {
+      "path": "source/scripts/g2-b2-ui.js",
+      "sourcePath": "scripts/g2-b2-ui.js",
+      "bytes": 81700,
+      "sha256": "025cdd78c43e9904afa39ffcb944317cfe47b40288306541ae6dc2ffa9d308a3",
+      "gitBlobSHA1": "4493b4cd754c1252398b83f3df022154354e2587"
+    },
+    {
+      "path": "source/scripts/g2-b2-legacy.js",
+      "sourcePath": "scripts/g2-b2-legacy.js",
+      "bytes": 1341,
+      "sha256": "1cb1a7ed08cf68613a549eede8ba5e4a635a78828820775e39b77ce02c520c69",
+      "gitBlobSHA1": "1d4b22d0f8e033959ad12031babc7f2e16d29896"
+    },
+    {
+      "path": "source/scripts/g2-b3-core.js",
+      "sourcePath": "scripts/g2-b3-core.js",
+      "bytes": 12862,
+      "sha256": "87dd1de1b59dd13a086e10c390af8684c5354eae39947391002d5e6d10ebcb03",
+      "gitBlobSHA1": "5cca222eea6bdc4c7647db00210fc5b20bd6472f"
+    },
+    {
+      "path": "source/scripts/g2-b3-bindings.js",
+      "sourcePath": "scripts/g2-b3-bindings.js",
+      "bytes": 4862,
+      "sha256": "f3cd0cfd637dbfa2136574959e53856587de7bacc9ad8329dcb7c5655507260e",
+      "gitBlobSHA1": "9b4cbfefc22a4aec9a5b404b7c9e28cea7276dfb"
+    },
+    {
+      "path": "source/scripts/g2-b3-ui.js",
+      "sourcePath": "scripts/g2-b3-ui.js",
+      "bytes": 11269,
+      "sha256": "fadd571815d0ad6c353e4060facd287c67b556831cb7fb28b35450e651aeef05",
+      "gitBlobSHA1": "56803e0d6a363ea92565e207a1edf6acbf6f401d"
+    },
+    {
+      "path": "source/scripts/g2-b4-core.js",
+      "sourcePath": "scripts/g2-b4-core.js",
+      "bytes": 30783,
+      "sha256": "94b42960b6e5349c550500d5a76e2bc999cb4bad0cf681133615e8d7f834cc51",
+      "gitBlobSHA1": "9c17829c13ea39c590326bef25c93dd9517548be"
+    },
+    {
+      "path": "source/scripts/g2-b4-bindings.js",
+      "sourcePath": "scripts/g2-b4-bindings.js",
+      "bytes": 11035,
+      "sha256": "c110cbbcab018bf550ffbff533ecdd0c0b89f59d5a1d3616ffdd90ef039188bd",
+      "gitBlobSHA1": "c54e753e427e93aaf45da38cc68aa7baa688c4a7"
+    },
+    {
+      "path": "source/scripts/g2-b4-ui.js",
+      "sourcePath": "scripts/g2-b4-ui.js",
+      "bytes": 23119,
+      "sha256": "3483bc007960e728389b308f3a565da4a507ca0b881f2923ea4594bb5b3fe025",
+      "gitBlobSHA1": "77b6df9348a02d9b2b063935e1aff60df8c35f1c"
+    },
+    {
+      "path": "source/scripts/g2-b5-core.js",
+      "sourcePath": "scripts/g2-b5-core.js",
+      "bytes": 34024,
+      "sha256": "ea78ac8e227199a33db79b79d45f8fbabb52ea2ebcbf69d2773c3e14cf8d2b07",
+      "gitBlobSHA1": "aa46a8b6f1b0f2d12e1da58ca3ba2fc41ddcedcb"
+    },
+    {
+      "path": "source/scripts/g2-b5-storage.js",
+      "sourcePath": "scripts/g2-b5-storage.js",
+      "bytes": 23916,
+      "sha256": "2eb3337bf00e5db89ab1e8ee5fe843ab0624802bd44d2222b9ae49acb03edcd2",
+      "gitBlobSHA1": "e1299a99ad82314ecf502dceed5ce2a4d68bf340"
+    },
+    {
+      "path": "source/scripts/g2-b5-bindings.js",
+      "sourcePath": "scripts/g2-b5-bindings.js",
+      "bytes": 24018,
+      "sha256": "31183f61b31fc85c7f9e63c8e824b98fc47fb1ce59907cfbca0470d4b8d39f76",
+      "gitBlobSHA1": "83f19b86456b30a0c6ad864807feafb53297e841"
+    },
+    {
+      "path": "source/scripts/g2-b5-sync.js",
+      "sourcePath": "scripts/g2-b5-sync.js",
+      "bytes": 27928,
+      "sha256": "c65263dfe83cd2a0317fdc936a6ddf03e5be979e308539708b4447f54c7c4dbc",
+      "gitBlobSHA1": "01accf43403a778a5f04faee1bc2f8761739ad4f"
+    },
+    {
+      "path": "source/scripts/g2-b5-ui.js",
+      "sourcePath": "scripts/g2-b5-ui.js",
+      "bytes": 31142,
+      "sha256": "9bbe5f8561751a5ed5651dc3ad958d4b2d566bdd63f4cbde3c99cf9f7699acb4",
+      "gitBlobSHA1": "0d8a70d5d9955bf9065d5d9255bbb347ef960140"
+    },
+    {
+      "path": "tools/g2-b5-build.cjs",
+      "sourcePath": "scripts/g2-b5-build.cjs",
+      "bytes": 4570,
+      "sha256": "3259aacee911b3331dbf296002ae345ed17764ce08723dfa61329236c48b0552",
+      "gitBlobSHA1": "8415d0500f7d3e7fd3f94ddc5c27805b6d5c50f1"
+    }
+  ],
+  "historyCopied": false,
+  "originalRepositoryWrites": false,
+  "websiteResourceCount": 28,
+  "repositoryFileCount": 33
+}
