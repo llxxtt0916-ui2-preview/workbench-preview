@@ -21,3 +21,15 @@
 @media(max-width:600px){.b4-inspiration-grid{grid-template-columns:1fr}.b4-category-head,.b4-spend{align-items:flex-start;flex-direction:column}.b4-page .filter-panel{grid-template-columns:1fr}.b4-fund-children{padding:8px}}
 /* Passive feedback must not intercept drawer or modal actions. */
 .toast-stack{pointer-events:none}
+/* V05 UX: only the inspiration toolbar; shared business toolbars stay intact. */
+.b4-page .toolbar:has(> #b4-tag){justify-content:flex-start;flex-wrap:wrap;gap:12px}
+.b4-page .toolbar:has(> #b4-tag)>.tabs{flex:0 0 auto;flex-wrap:nowrap;white-space:nowrap}
+.b4-page .toolbar:has(> #b4-tag)>label,.b4-page .toolbar:has(> #b4-tag)>span{flex:none;white-space:nowrap}
+.b4-page .toolbar>#b4-tag{width:260px;max-width:100%;min-width:0;flex:0 1 260px}
+.b4-inspiration-card h2{overflow-wrap:anywhere}
+.b4-inspiration-card .tag{display:inline-block;max-width:100%;white-space:normal;overflow-wrap:anywhere}
+@media(max-width:760px){
+ .b4-page .toolbar:has(> #b4-tag){flex-direction:row;align-items:center}
+ .b4-page .toolbar:has(> #b4-tag)>.tabs{flex-basis:100%}
+ .b4-page .toolbar>#b4-tag{max-width:calc(100% - 68px)}
+}

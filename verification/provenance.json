@@ -2,7 +2,7 @@
   "version": 1,
   "sourceRepository": "llxxtt0916-coder/workbench",
   "sourceCommit": "54eac92db183b67964607fc739a71494dd56d6b9",
-  "expectedBuildId": "g2-b5-i06-82528cf977d7dd2a",
+  "expectedBuildId": "g2-b5-i06-11f17d8ed10a0c0e",
   "previewRepository": "llxxtt0916-ui2-preview/workbench-preview",
   "sourceFiles": [
     {
@@ -78,9 +78,10 @@
     {
       "path": "source/assets/ui2/business-records.css",
       "sourcePath": "assets/ui2/business-records.css",
-      "bytes": 2535,
-      "sha256": "6e08276712d55091b87a96e7a6b8e0ba07e2948efd7cfa525b5c1ad0a830e279",
-      "gitBlobSHA1": "e172532bcacd44c3639af50397c0e9f3ac57cde2"
+      "bytes": 3346,
+      "sha256": "1adc5b9ad40633f0b0053793a2d179fe8ff2a0618b2ce453252587acd3c487e7",
+      "gitBlobSHA1": "f9e2b02878d29d601cfc9745faefc25975436bd5",
+      "baseSHA256": "6e08276712d55091b87a96e7a6b8e0ba07e2948efd7cfa525b5c1ad0a830e279"
     },
     {
       "path": "source/scripts/g2-b1-core.js",
@@ -212,5 +213,16 @@
   "historyCopied": false,
   "originalRepositoryWrites": false,
   "websiteResourceCount": 28,
-  "repositoryFileCount": 33
+  "repositoryFileCount": 33,
+  "basePreviewCommit": "817bb69610f6088adf8330eda3ccec9d9e262a09",
+  "sourceCommitMeaning": "Immutable base source commit; the single local reviewed override below is NOT claimed to be present in that commit",
+  "approvedOverrides": [
+    {
+      "path": "source/assets/ui2/business-records.css",
+      "baseSHA256": "6e08276712d55091b87a96e7a6b8e0ba07e2948efd7cfa525b5c1ad0a830e279",
+      "sha256": "1adc5b9ad40633f0b0053793a2d179fe8ff2a0618b2ce453252587acd3c487e7",
+      "patchSHA256": "07ea3c53925c559e0b529ca72ba3a0e31b9c05fb944a482746611beb3f3ec928",
+      "reason": "G2-V05-UX UX-02 local CSS candidate; awaiting review and separate deployment authorization"
+    }
+  ]
 }

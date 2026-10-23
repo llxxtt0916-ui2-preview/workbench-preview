@@ -42,10 +42,12 @@ jobs:
           node <<'NODE'
           'use strict';
           const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),assert=require('node:assert/strict');
-          const sourceCommit='54eac92db183b67964607fc739a71494dd56d6b9',buildId='g2-b5-i06-82528cf977d7dd2a';
+          const sourceCommit='54eac92db183b67964607fc739a71494dd56d6b9',buildId='g2-b5-i06-11f17d8ed10a0c0e';
           const root=process.cwd(),sha=b=>crypto.createHash('sha256').update(b).digest('hex');
           const expected=JSON.parse(fs.readFileSync('verification/expected-assets.json','utf8')),provenance=JSON.parse(fs.readFileSync('verification/provenance.json','utf8'));
           assert.equal(provenance.sourceCommit,sourceCommit);assert.equal(expected.sourceCommit,sourceCommit);assert.equal(expected.buildId,buildId);assert.equal(provenance.previewRepository,'llxxtt0916-ui2-preview/workbench-preview');
+          assert.equal(provenance.basePreviewCommit,'817bb69610f6088adf8330eda3ccec9d9e262a09');
+          assert.equal(provenance.approvedOverrides.length,1);assert.equal(provenance.approvedOverrides[0].path,'source/assets/ui2/business-records.css');assert.equal(provenance.approvedOverrides[0].sha256,'1adc5b9ad40633f0b0053793a2d179fe8ff2a0618b2ce453252587acd3c487e7');
           assert.equal(provenance.sourceFiles.length,29);assert.equal(expected.resources.length,28);
           function files(dir,base=dir){return fs.readdirSync(dir,{withFileTypes:true}).flatMap(e=>{if(dir===base&&e.name==='.git')return [];const p=path.join(dir,e.name),s=fs.lstatSync(p);assert(!s.isSymbolicLink());if(s.isDirectory())return files(p,base);assert(s.isFile()&&s.nlink===1);return [path.relative(base,p).split(path.sep).join('/')];});}
           const allowed=[...provenance.sourceFiles.map(x=>x.path),'verification/expected-assets.json','verification/provenance.json','.github/workflows/preview.yml','README.md'].sort();
